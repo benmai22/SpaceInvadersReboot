@@ -23,7 +23,7 @@ UNIQUE FEATURES/MECHANICS:
 
 -Alien AI is very challenging and move in its own unique direction
 
--Play the classic version of the game from our menu
+-Play the classic version of the game from the menu
 
 
 
