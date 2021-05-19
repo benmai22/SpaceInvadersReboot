@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Stars/StarsSmall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Stars/StarsBig.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Stars/Fog.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/MainMenu/MenuItems.tscn" type="PackedScene" id=5]
+
+[node name="Container" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( -864.682, 199.923 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Fog" parent="." instance=ExtResource( 4 )]
+position = Vector2( 964.402, 522.303 )
+
+[node name="StarsBig" parent="." instance=ExtResource( 3 )]
+position = Vector2( 127.531, 231.972 )
+
+[node name="StarsSmall" parent="." instance=ExtResource( 2 )]
+position = Vector2( -11.9958, 26.6537 )
+
+[node name="MainHBoxContainer" parent="." instance=ExtResource( 5 )]
+anchor_top = 0.025361
+anchor_right = 1.0
+anchor_bottom = 1.02814
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0

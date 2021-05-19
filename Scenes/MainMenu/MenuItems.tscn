@@ -1,0 +1,308 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Assets/Sprites/dodonpachi bullets.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/Mobile - DoDonPachi Unlimited - Type C.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Health.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/MainMenu/MenuButtons.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/MainMenu/MainMenu.cs" type="Script" id=5]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/Fonts/Roboto-Black.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Assets/Fonts/Roboto-Black.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://Assets/Fonts/Roboto-Black.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 45
+font_data = SubResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.133333, 0.843137, 0.368627, 1 )
+
+[sub_resource type="DynamicFontData" id=8]
+hinting = 1
+font_path = "res://Assets/Fonts/Roboto-Black.ttf"
+
+[sub_resource type="DynamicFont" id=9]
+size = 40
+outline_color = Color( 0.109804, 0.686275, 0.768627, 1 )
+font_data = SubResource( 8 )
+
+[sub_resource type="DynamicFontData" id=10]
+font_path = "res://Assets/Fonts/Roboto-Black.ttf"
+
+[sub_resource type="DynamicFont" id=11]
+size = 20
+font_data = SubResource( 10 )
+
+[node name="MainHBoxContainer" type="HBoxContainer"]
+anchor_left = 0.00110359
+anchor_right = 0.00110359
+anchor_bottom = 0.0388889
+margin_left = 50.0
+margin_top = 39.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+custom_constants/separation = 627
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxMenuContainer2" type="VBoxContainer" parent="."]
+margin_right = 12.0
+margin_bottom = 1083.0
+
+[node name="MenuButton" parent="VBoxMenuContainer2" instance=ExtResource( 4 )]
+
+[node name="VBoxStoreContainer" type="VBoxContainer" parent="."]
+margin_left = 639.0
+margin_right = 1847.0
+margin_bottom = 1083.0
+rect_min_size = Vector2( 1100, 800 )
+custom_constants/separation = 233
+
+[node name="Panel" type="Panel" parent="VBoxStoreContainer"]
+margin_right = 1208.0
+margin_bottom = 50.0
+grow_horizontal = 0
+rect_min_size = Vector2( 250, 50 )
+
+[node name="NameText" type="RichTextLabel" parent="VBoxStoreContainer/Panel"]
+anchor_right = 1.0
+margin_left = 50.0
+margin_top = 5.0
+margin_right = -637.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 400, 50 )
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.862745, 0, 0.0196078, 1 )
+text = "Space Invader"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrencyText" type="RichTextLabel" parent="VBoxStoreContainer/Panel"]
+anchor_right = 1.0
+margin_left = 758.0
+margin_top = 5.0
+margin_right = -50.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 400, 50 )
+custom_fonts/mono_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.219608, 1, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[right]Currency : 0[/right]"
+text = "Currency : 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxStoreContainer"]
+margin_top = 283.0
+margin_right = 1208.0
+margin_bottom = 1083.0
+rect_min_size = Vector2( 800, 800 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxStoreContainer/HBoxContainer"]
+margin_right = 400.0
+margin_bottom = 800.0
+rect_min_size = Vector2( 400, 200 )
+
+[node name="Panel" type="Panel" parent="VBoxStoreContainer/HBoxContainer/VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 250, 250 )
+
+[node name="Sprite" type="Sprite" parent="VBoxStoreContainer/HBoxContainer/VBoxContainer/Panel"]
+position = Vector2( 188.585, 136.011 )
+scale = Vector2( 2.23988, 2.23988 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 360.348, 698.524, 53.0546, 74.8206 )
+
+[node name="Panel2" type="Panel" parent="VBoxStoreContainer/HBoxContainer/VBoxContainer"]
+margin_top = 254.0
+margin_right = 400.0
+margin_bottom = 354.0
+rect_min_size = Vector2( 250, 100 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxStoreContainer/HBoxContainer/VBoxContainer/Panel2"]
+anchor_left = 0.5
+anchor_top = 0.575817
+anchor_right = 0.5
+anchor_bottom = 0.575817
+margin_left = -171.309
+margin_top = -40.2727
+margin_right = 180.691
+margin_bottom = 36.7273
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[center]Extra Life[/center]"
+text = "Extra Life"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExtraLifeBtn" type="Button" parent="VBoxStoreContainer/HBoxContainer/VBoxContainer"]
+margin_top = 358.0
+margin_right = 400.0
+margin_bottom = 438.0
+rect_min_size = Vector2( 200, 80 )
+custom_styles/hover = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxStoreContainer/HBoxContainer"]
+margin_left = 404.0
+margin_right = 804.0
+margin_bottom = 800.0
+rect_min_size = Vector2( 400, 200 )
+
+[node name="Panel" type="Panel" parent="VBoxStoreContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 400.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 250, 250 )
+
+[node name="Sprite" type="Sprite" parent="VBoxStoreContainer/HBoxContainer/VBoxContainer2/Panel"]
+position = Vector2( 205.536, 128.752 )
+scale = Vector2( 0.314258, 0.314258 )
+texture = ExtResource( 3 )
+region_rect = Rect2( 360.348, 698.524, 53.0546, 74.8206 )
+
+[node name="Panel3" type="Panel" parent="VBoxStoreContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 254.0
+margin_right = 400.0
+margin_bottom = 354.0
+rect_min_size = Vector2( 250, 100 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxStoreContainer/HBoxContainer/VBoxContainer2/Panel3"]
+anchor_left = 0.5
+anchor_top = 0.558
+anchor_right = 0.5
+anchor_bottom = 0.558
+margin_left = -144.873
+margin_top = -42.0182
+margin_right = 171.127
+margin_bottom = 34.9818
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[center]Double Health[/center]"
+text = "Double Health"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DoubleHealthBtn" type="Button" parent="VBoxStoreContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 358.0
+margin_right = 400.0
+margin_bottom = 438.0
+rect_min_size = Vector2( 200, 80 )
+custom_styles/hover = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxStoreContainer/HBoxContainer"]
+margin_left = 808.0
+margin_right = 1208.0
+margin_bottom = 800.0
+rect_min_size = Vector2( 400, 200 )
+
+[node name="Panel" type="Panel" parent="VBoxStoreContainer/HBoxContainer/VBoxContainer3"]
+margin_right = 400.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 250, 250 )
+
+[node name="Sprite" type="Sprite" parent="VBoxStoreContainer/HBoxContainer/VBoxContainer3/Panel"]
+position = Vector2( 206.521, 124.737 )
+scale = Vector2( 2.34935, 2.31841 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 360.348, 698.524, 53.0546, 74.8206 )
+
+[node name="Bullet1" type="Sprite" parent="VBoxStoreContainer/HBoxContainer/VBoxContainer3/Panel"]
+position = Vector2( 147.066, 92.6548 )
+rotation = -1.5708
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 273.905, 416.694, 27.2352, 22.3468 )
+
+[node name="Bullet2" type="Sprite" parent="VBoxStoreContainer/HBoxContainer/VBoxContainer3/Panel"]
+position = Vector2( 263.281, 94.7737 )
+rotation = -1.5708
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 273.905, 416.694, 27.2352, 22.3468 )
+
+[node name="Bullet3" type="Sprite" parent="VBoxStoreContainer/HBoxContainer/VBoxContainer3/Panel"]
+position = Vector2( 147.066, 48.6051 )
+rotation = -1.5708
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 273.905, 416.694, 27.2352, 22.3468 )
+
+[node name="Bullet4" type="Sprite" parent="VBoxStoreContainer/HBoxContainer/VBoxContainer3/Panel"]
+position = Vector2( 263.281, 50.724 )
+rotation = -1.5708
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 273.905, 416.694, 27.2352, 22.3468 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxStoreContainer/HBoxContainer/VBoxContainer3/Panel"]
+margin_left = 41.0
+margin_top = 220.0
+margin_right = 371.0
+margin_bottom = 270.0
+custom_fonts/normal_font = SubResource( 11 )
+bbcode_enabled = true
+bbcode_text = "   Normal Mode : 1   Burst Mode : 2
+"
+text = "   Normal Mode : 1   Burst Mode : 2
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel4" type="Panel" parent="VBoxStoreContainer/HBoxContainer/VBoxContainer3"]
+margin_top = 254.0
+margin_right = 400.0
+margin_bottom = 354.0
+rect_min_size = Vector2( 250, 100 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxStoreContainer/HBoxContainer/VBoxContainer3/Panel4"]
+anchor_left = 0.5
+anchor_top = 0.540182
+anchor_right = 0.5
+anchor_bottom = 0.540182
+margin_left = -130.019
+margin_top = -39.8
+margin_right = 157.981
+margin_bottom = 37.2
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[center]Burst Missile[/center]"
+text = "Burst Missile"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MissileBtn" type="Button" parent="VBoxStoreContainer/HBoxContainer/VBoxContainer3"]
+margin_top = 358.0
+margin_right = 400.0
+margin_bottom = 438.0
+rect_min_size = Vector2( 200, 80 )
+custom_styles/hover = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
+[connection signal="button_up" from="VBoxStoreContainer/HBoxContainer/VBoxContainer/ExtraLifeBtn" to="." method="OnExtraLivesClick"]
+[connection signal="button_up" from="VBoxStoreContainer/HBoxContainer/VBoxContainer2/DoubleHealthBtn" to="." method="OnDoubleHealthClick"]
+[connection signal="button_up" from="VBoxStoreContainer/HBoxContainer/VBoxContainer3/MissileBtn" to="." method="OnBurstBulletClick"]

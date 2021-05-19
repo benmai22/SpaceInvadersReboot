@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Sprites/dodonpachi bullets.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Bullet/Bullet.cs" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4.54054, 5.05431 )
+
+[node name="Bullet" type="KinematicBody2D"]
+position = Vector2( 287.41, 155.739 )
+collision_layer = 4
+collision_mask = 6
+script = ExtResource( 2 )
+maxNewEnemySpawn = 1
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 363.186, 372.715, 30.8089, 31.2852 )
+region_filter_clip = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

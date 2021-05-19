@@ -1,0 +1,686 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Scenes/Classic/ClassicPlayer/ClassicPlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Classic/ClassicEnemy/ClassicEnemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Sprites/Classic/barricade_1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Classic/barricade_2.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Classic/ClassicBarricade/ClassicBarricade.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Sprites/Classic/barricade_slope.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Classic/barricade_slope_1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Classic/barricade_slope_2.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Classic/barricade.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Classic/ClassicGame.cs" type="Script" id=10]
+[ext_resource path="res://Assets/Fonts/Roboto-Black.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Assets/Sound/Classic/step.wav" type="AudioStream" id=12]
+[ext_resource path="res://Assets/Sprites/Classic/alien3.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/Classic/alien.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/Classic/alien2.png" type="Texture" id=15]
+[ext_resource path="res://Scenes/Classic/ClassicBonus/ClassicBonus.tscn" type="PackedScene" id=16]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 600 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 600, 10 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 48
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 11 )
+
+[node name="ClassicGame" type="Node2D"]
+script = ExtResource( 10 )
+BonusScene = ExtResource( 16 )
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+
+[node name="ClassicPlayer" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 448 )
+
+[node name="Collisions" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions"]
+position = Vector2( -517, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2( 517, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Collisions"]
+position = Vector2( 0, 549 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Collisions"]
+position = Vector2( 0, -552 )
+shape = SubResource( 2 )
+
+[node name="MoveTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="BonusTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Enemies" type="Node2D" parent="."]
+position = Vector2( 0, -441 )
+
+[node name="ClassicEnemy" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -64, 32 )
+Texture = ExtResource( 13 )
+Points = 30
+
+[node name="ClassicEnemy2" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 0, 32 )
+Texture = ExtResource( 13 )
+Points = 30
+
+[node name="ClassicEnemy3" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -128, 32 )
+Texture = ExtResource( 13 )
+Points = 30
+
+[node name="ClassicEnemy4" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -256, 32 )
+Texture = ExtResource( 13 )
+Points = 30
+
+[node name="ClassicEnemy5" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -192, 32 )
+Texture = ExtResource( 13 )
+Points = 30
+
+[node name="ClassicEnemy6" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -320, 32 )
+Texture = ExtResource( 13 )
+Points = 30
+
+[node name="ClassicEnemy7" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 320, 32 )
+Texture = ExtResource( 13 )
+Points = 30
+
+[node name="ClassicEnemy9" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 256, 32 )
+Texture = ExtResource( 13 )
+Points = 30
+
+[node name="ClassicEnemy10" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 128, 32 )
+Texture = ExtResource( 13 )
+Points = 30
+
+[node name="ClassicEnemy11" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 192, 32 )
+Texture = ExtResource( 13 )
+Points = 30
+
+[node name="ClassicEnemy12" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 64, 32 )
+Texture = ExtResource( 13 )
+Points = 30
+
+[node name="ClassicEnemy13" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -64, 96 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy14" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 0, 96 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy15" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -128, 96 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy16" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -256, 96 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy17" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -192, 96 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy18" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -320, 96 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy19" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 320, 96 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy21" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 256, 96 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy22" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 128, 96 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy23" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 192, 96 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy24" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 64, 96 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy8" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -64, 224 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy20" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 0, 224 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy32" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -128, 224 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy37" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -256, 224 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy38" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -192, 224 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy39" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -320, 224 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy40" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 320, 224 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy41" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 256, 224 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy42" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 128, 224 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy43" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 192, 224 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy44" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 64, 224 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy45" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -64, 288 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy46" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 0, 288 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy47" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -128, 288 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy48" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -256, 288 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy49" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -192, 288 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy50" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -320, 288 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy51" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 320, 288 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy52" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 256, 288 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy53" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 128, 288 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy54" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 192, 288 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy55" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 64, 288 )
+Texture = ExtResource( 14 )
+
+[node name="ClassicEnemy25" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -64, 160 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy26" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 0, 160 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy27" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -128, 160 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy28" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -256, 160 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy29" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -192, 160 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy30" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( -320, 160 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy31" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 320, 157.48 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy33" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 256, 160 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy34" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 128, 160 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy35" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 192, 160 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="ClassicEnemy36" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 64, 160 )
+Texture = ExtResource( 15 )
+Points = 20
+
+[node name="StepSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -10.0
+
+[node name="Barricades" type="Node2D" parent="."]
+position = Vector2( 0, 224 )
+
+[node name="center" type="Node2D" parent="Barricades"]
+position = Vector2( 110, 0 )
+
+[node name="ClassicBarricade6" parent="Barricades/center" instance=ExtResource( 5 )]
+position = Vector2( -11, 11 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="ClassicBarricade7" parent="Barricades/center" instance=ExtResource( 5 )]
+position = Vector2( 11, 11 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="ClassicBarricade10" parent="Barricades/center" instance=ExtResource( 5 )]
+position = Vector2( -11, 33 )
+rotation = -3.14159
+Texture = ExtResource( 6 )
+TextureDamaged2 = ExtResource( 8 )
+TextureDamaged = ExtResource( 7 )
+
+[node name="ClassicBarricade11" parent="Barricades/center" instance=ExtResource( 5 )]
+position = Vector2( 11, 33 )
+rotation = -1.57471
+Texture = ExtResource( 6 )
+TextureDamaged2 = ExtResource( 8 )
+TextureDamaged = ExtResource( 7 )
+
+[node name="ClassicBarricade12" parent="Barricades/center" instance=ExtResource( 5 )]
+position = Vector2( -33, 11 )
+rotation = -6.28318
+Texture = ExtResource( 6 )
+TextureDamaged2 = ExtResource( 8 )
+TextureDamaged = ExtResource( 7 )
+
+[node name="ClassicBarricade13" parent="Barricades/center" instance=ExtResource( 5 )]
+position = Vector2( 33, 11 )
+rotation = 1.57079
+Texture = ExtResource( 6 )
+TextureDamaged2 = ExtResource( 8 )
+TextureDamaged = ExtResource( 7 )
+
+[node name="ClassicBarricade8" parent="Barricades/center" instance=ExtResource( 5 )]
+position = Vector2( -33, 33 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="ClassicBarricade9" parent="Barricades/center" instance=ExtResource( 5 )]
+position = Vector2( 33, 33 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="ClassicBarricade14" parent="Barricades/center" instance=ExtResource( 5 )]
+position = Vector2( -33, 55 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="ClassicBarricade15" parent="Barricades/center" instance=ExtResource( 5 )]
+position = Vector2( 33, 55 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="center2" type="Node2D" parent="Barricades"]
+position = Vector2( 330, 0 )
+
+[node name="ClassicBarricade6" parent="Barricades/center2" instance=ExtResource( 5 )]
+position = Vector2( -11, 11 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="ClassicBarricade7" parent="Barricades/center2" instance=ExtResource( 5 )]
+position = Vector2( 11, 11 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="ClassicBarricade10" parent="Barricades/center2" instance=ExtResource( 5 )]
+position = Vector2( -11, 33 )
+rotation = -3.14159
+Texture = ExtResource( 6 )
+TextureDamaged2 = ExtResource( 8 )
+TextureDamaged = ExtResource( 7 )
+
+[node name="ClassicBarricade11" parent="Barricades/center2" instance=ExtResource( 5 )]
+position = Vector2( 11, 33 )
+rotation = -1.57471
+Texture = ExtResource( 6 )
+TextureDamaged2 = ExtResource( 8 )
+TextureDamaged = ExtResource( 7 )
+
+[node name="ClassicBarricade12" parent="Barricades/center2" instance=ExtResource( 5 )]
+position = Vector2( -33, 11 )
+rotation = -6.28318
+Texture = ExtResource( 6 )
+TextureDamaged2 = ExtResource( 8 )
+TextureDamaged = ExtResource( 7 )
+
+[node name="ClassicBarricade13" parent="Barricades/center2" instance=ExtResource( 5 )]
+position = Vector2( 33, 11 )
+rotation = 1.57079
+Texture = ExtResource( 6 )
+TextureDamaged2 = ExtResource( 8 )
+TextureDamaged = ExtResource( 7 )
+
+[node name="ClassicBarricade8" parent="Barricades/center2" instance=ExtResource( 5 )]
+position = Vector2( -33, 33 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="ClassicBarricade9" parent="Barricades/center2" instance=ExtResource( 5 )]
+position = Vector2( 33, 33 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="ClassicBarricade14" parent="Barricades/center2" instance=ExtResource( 5 )]
+position = Vector2( -33, 55 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="ClassicBarricade15" parent="Barricades/center2" instance=ExtResource( 5 )]
+position = Vector2( 33, 55 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="center4" type="Node2D" parent="Barricades"]
+position = Vector2( -110, 0 )
+
+[node name="ClassicBarricade6" parent="Barricades/center4" instance=ExtResource( 5 )]
+position = Vector2( -11, 11 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="ClassicBarricade7" parent="Barricades/center4" instance=ExtResource( 5 )]
+position = Vector2( 11, 11 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="ClassicBarricade10" parent="Barricades/center4" instance=ExtResource( 5 )]
+position = Vector2( -11, 33 )
+rotation = -3.14159
+Texture = ExtResource( 6 )
+TextureDamaged2 = ExtResource( 8 )
+TextureDamaged = ExtResource( 7 )
+
+[node name="ClassicBarricade11" parent="Barricades/center4" instance=ExtResource( 5 )]
+position = Vector2( 11, 33 )
+rotation = -1.57471
+Texture = ExtResource( 6 )
+TextureDamaged2 = ExtResource( 8 )
+TextureDamaged = ExtResource( 7 )
+
+[node name="ClassicBarricade12" parent="Barricades/center4" instance=ExtResource( 5 )]
+position = Vector2( -33, 11 )
+rotation = -6.28318
+Texture = ExtResource( 6 )
+TextureDamaged2 = ExtResource( 8 )
+TextureDamaged = ExtResource( 7 )
+
+[node name="ClassicBarricade13" parent="Barricades/center4" instance=ExtResource( 5 )]
+position = Vector2( 33, 11 )
+rotation = 1.57079
+Texture = ExtResource( 6 )
+TextureDamaged2 = ExtResource( 8 )
+TextureDamaged = ExtResource( 7 )
+
+[node name="ClassicBarricade8" parent="Barricades/center4" instance=ExtResource( 5 )]
+position = Vector2( -33, 33 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="ClassicBarricade9" parent="Barricades/center4" instance=ExtResource( 5 )]
+position = Vector2( 33, 33 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="ClassicBarricade14" parent="Barricades/center4" instance=ExtResource( 5 )]
+position = Vector2( -33, 55 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="ClassicBarricade15" parent="Barricades/center4" instance=ExtResource( 5 )]
+position = Vector2( 33, 55 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="center3" type="Node2D" parent="Barricades"]
+position = Vector2( -330, 0 )
+
+[node name="ClassicBarricade6" parent="Barricades/center3" instance=ExtResource( 5 )]
+position = Vector2( -11, 11 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="ClassicBarricade7" parent="Barricades/center3" instance=ExtResource( 5 )]
+position = Vector2( 11, 11 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="ClassicBarricade10" parent="Barricades/center3" instance=ExtResource( 5 )]
+position = Vector2( -11, 33 )
+rotation = -3.14159
+Texture = ExtResource( 6 )
+TextureDamaged2 = ExtResource( 8 )
+TextureDamaged = ExtResource( 7 )
+
+[node name="ClassicBarricade11" parent="Barricades/center3" instance=ExtResource( 5 )]
+position = Vector2( 11, 33 )
+rotation = -1.57471
+Texture = ExtResource( 6 )
+TextureDamaged2 = ExtResource( 8 )
+TextureDamaged = ExtResource( 7 )
+
+[node name="ClassicBarricade12" parent="Barricades/center3" instance=ExtResource( 5 )]
+position = Vector2( -33, 11 )
+rotation = -6.28318
+Texture = ExtResource( 6 )
+TextureDamaged2 = ExtResource( 8 )
+TextureDamaged = ExtResource( 7 )
+
+[node name="ClassicBarricade13" parent="Barricades/center3" instance=ExtResource( 5 )]
+position = Vector2( 33, 11 )
+rotation = 1.57079
+Texture = ExtResource( 6 )
+TextureDamaged2 = ExtResource( 8 )
+TextureDamaged = ExtResource( 7 )
+
+[node name="ClassicBarricade8" parent="Barricades/center3" instance=ExtResource( 5 )]
+position = Vector2( -33, 33 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="ClassicBarricade9" parent="Barricades/center3" instance=ExtResource( 5 )]
+position = Vector2( 33, 33 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="ClassicBarricade14" parent="Barricades/center3" instance=ExtResource( 5 )]
+position = Vector2( -33, 55 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="ClassicBarricade15" parent="Barricades/center3" instance=ExtResource( 5 )]
+position = Vector2( 33, 55 )
+Texture = ExtResource( 9 )
+TextureDamaged2 = ExtResource( 4 )
+TextureDamaged = ExtResource( 3 )
+
+[node name="HUD" type="Node2D" parent="."]
+
+[node name="Lives" type="Label" parent="HUD"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -344.0
+margin_top = -528.0
+margin_right = -157.0
+margin_bottom = -488.0
+custom_fonts/font = SubResource( 3 )
+text = "Lives: 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="HUD"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -152.0
+margin_top = -528.0
+margin_right = 26.0
+margin_bottom = -488.0
+custom_fonts/font = SubResource( 3 )
+text = "Score: 1000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="CenterContainer" parent="HUD"]
+visible = false
+margin_left = -517.0
+margin_top = -552.0
+margin_right = 517.0
+margin_bottom = 549.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Box" type="VBoxContainer" parent="HUD/GameOver"]
+margin_left = 425.0
+margin_top = 486.0
+margin_right = 609.0
+margin_bottom = 614.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="HUD/GameOver/Box"]
+margin_right = 184.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 4 )
+text = "You win!"
+align = 1
+valign = 1
+
+[node name="Score" type="Label" parent="HUD/GameOver/Box"]
+margin_top = 61.0
+margin_right = 184.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 5 )
+text = "Your score: 2000"
+align = 1
+valign = 1
+
+[node name="Retry" type="Button" parent="HUD/GameOver/Box"]
+margin_top = 84.0
+margin_right = 184.0
+margin_bottom = 104.0
+text = "Retry"
+
+[node name="MainMenu" type="Button" parent="HUD/GameOver/Box"]
+margin_top = 108.0
+margin_right = 184.0
+margin_bottom = 128.0
+text = "MainMenu"
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( -468, -460 )
+[connection signal="timeout" from="MoveTimer" to="." method="Move"]
+[connection signal="timeout" from="BonusTimer" to="." method="Bonus"]
+[connection signal="pressed" from="HUD/GameOver/Box/Retry" to="." method="Reload"]
+[connection signal="pressed" from="HUD/GameOver/Box/MainMenu" to="." method="MainMenu"]

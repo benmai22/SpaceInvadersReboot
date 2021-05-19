@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Sprites/Mobile - DoDonPachi Unlimited - Type C.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Player/Player.cs" type="Script" id=2]
+[ext_resource path="res://Assets/Sound/gun.wav" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 49.5359, 67.5997 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 475.203, 568.642 )
+script = ExtResource( 2 )
+speed = 300
+flashSeconds = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 2.20484, 2.08996 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 2.18613, 0.899033 )
+scale = Vector2( 1.82236, 1.82236 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 366, 351.905, 56.6002, 70.545 )
+
+[node name="HealthText" type="RichTextLabel" parent="."]
+margin_left = 54.1101
+margin_top = 8.70935
+margin_right = 113.11
+margin_bottom = 33.7094
+rect_scale = Vector2( 2, 2 )
+custom_colors/default_color = Color( 0.14902, 1, 0, 1 )
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LivesText" type="RichTextLabel" parent="."]
+margin_left = 54.7361
+margin_top = -19.7994
+margin_right = 113.736
+margin_bottom = 5.20056
+rect_scale = Vector2( 2, 2 )
+custom_colors/default_color = Color( 1, 0, 0, 1 )
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -5.0

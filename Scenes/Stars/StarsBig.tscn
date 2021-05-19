@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Sprites/stars_close.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Stars/Stars.cs" type="Script" id=2]
+
+
+[node name="StarsBig" type="Sprite"]
+
+[node name="StarsBig1" type="Sprite" parent="."]
+position = Vector2( 284.678, -272.692 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+velocity = Vector2( 0, 180 )
+height = 120
+
+[node name="StarsBig2" type="Sprite" parent="."]
+position = Vector2( 964.91, -239.729 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+velocity = Vector2( 0, 180 )
+height = 120
+
+[node name="StarsBig3" type="Sprite" parent="."]
+position = Vector2( 1474.33, -254.712 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+velocity = Vector2( 0, 180 )
+height = 120
+
+[node name="StarsBig4" type="Sprite" parent="."]
+position = Vector2( 335.621, 284.678 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+velocity = Vector2( 0, 180 )
+height = 120
+
+[node name="StarsBig5" type="Sprite" parent="."]
+position = Vector2( 922.957, 302.658 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+velocity = Vector2( 0, 180 )
+height = 120
+
+[node name="StarsBig6" type="Sprite" parent="."]
+position = Vector2( 1525.28, 302.658 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+velocity = Vector2( 0, 180 )
+height = 120
+
+[node name="StarsBig7" type="Sprite" parent="."]
+position = Vector2( 362.59, 803.093 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+velocity = Vector2( 0, 180 )
+height = 120
+
+[node name="StarsBig8" type="Sprite" parent="."]
+position = Vector2( 967.906, 809.086 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+velocity = Vector2( 0, 180 )
+height = 120
+
+[node name="StarsBig9" type="Sprite" parent="."]
+position = Vector2( 1624.17, 821.072 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+velocity = Vector2( 0, 180 )
+height = 120

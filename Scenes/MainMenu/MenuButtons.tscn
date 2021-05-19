@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/MainMenu/Menu.cs" type="Script" id=1]
+
+[node name="MenuButton" type="MenuButton"]
+margin_right = 12.0
+margin_bottom = 20.0
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGameBtn" type="Button" parent="."]
+margin_left = 13.0
+margin_top = 355.635
+margin_right = 187.0
+margin_bottom = 397.635
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0.0862745, 0.972549, 0.992157, 1 )
+custom_colors/font_color_hover = Color( 0.0705882, 0.733333, 0.223529, 1 )
+custom_colors/font_color_pressed = Color( 0.0705882, 0.733333, 0.223529, 1 )
+text = "New Game"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClassicGameBtn" type="Button" parent="."]
+margin_left = 13.0
+margin_top = 447.635
+margin_right = 187.0
+margin_bottom = 489.635
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0.0862745, 0.972549, 0.992157, 1 )
+custom_colors/font_color_hover = Color( 0.0705882, 0.733333, 0.223529, 1 )
+custom_colors/font_color_pressed = Color( 0.0705882, 0.733333, 0.223529, 1 )
+text = "Classic Game"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitBtn" type="Button" parent="."]
+margin_left = 13.0
+margin_top = 539.759
+margin_right = 187.0
+margin_bottom = 581.759
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0.0862745, 0.972549, 0.992157, 1 )
+custom_colors/font_color_hover = Color( 0.0705882, 0.733333, 0.223529, 1 )
+custom_colors/font_color_pressed = Color( 0.0705882, 0.733333, 0.223529, 1 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="NewGameBtn" to="NewGameBtn" method="NewGameBtnPressed"]
+[connection signal="pressed" from="ClassicGameBtn" to="ClassicGameBtn" method="ClassicGameBtnPressed"]
+[connection signal="pressed" from="QuitBtn" to="NewGameBtn" method="QuitBtnPressed"]

@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Sprites/Classic/player.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Classic/ClassicPlayer/ClassicPlayer.cs" type="Script" id=2]
+[ext_resource path="res://Scenes/Classic/ClassicProjectile/ClassicProjectile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Sound/Classic/laser.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Sound/Classic/explosion.wav" type="AudioStream" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.743671, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="ClassicPlayer" type="KinematicBody2D"]
+script = ExtResource( 2 )
+ProjectileScene = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, -64 )
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+
+[node name="ExplosionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+
+[node name="ExplosionParticles" type="CPUParticles2D" parent="."]
+scale = Vector2( 4, 4 )
+emitting = false
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+flag_align_y = true
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 10.0
+color_ramp = SubResource( 2 )

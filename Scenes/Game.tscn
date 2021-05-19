@@ -1,0 +1,164 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Stars/StarsSmall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Stars/StarsBig.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Stars/Fog.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/GameManager.cs" type="Script" id=5]
+[ext_resource path="res://Scenes/MainMenu/MenuButtons.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/InGameMenu.cs" type="Script" id=7]
+[ext_resource path="res://Assets/Sound/Savfk - Stronger.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Fonts/Roboto-Black.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 9 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[node name="World" type="Node2D"]
+script = ExtResource( 5 )
+asteroidGenerationTime = Vector2( 15, 30 )
+armorGenerationTime = Vector2( 25, 35 )
+initialEnemies = 25
+bulletTimer = 1
+
+[node name="StarsSmall" parent="." instance=ExtResource( 2 )]
+
+[node name="StarsBig" parent="." instance=ExtResource( 3 )]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 863.921, 929.788 )
+shipWidth = 50
+shipHeight = 80
+burstBulletCooldownTime = 0.2
+currentLives = 1
+
+[node name="Fog" parent="." instance=ExtResource( 4 )]
+position = Vector2( 969.807, 555.752 )
+
+[node name="ScoreText" type="RichTextLabel" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 1683.52
+margin_top = 10.0
+margin_right = 1761.52
+margin_bottom = 58.0
+rect_scale = Vector2( 3, 3 )
+custom_colors/default_color = Color( 0.968627, 1, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[right]0[/right]"
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FPSText" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 46.0
+margin_top = 827.0
+margin_right = 81.0
+margin_bottom = 851.0
+rect_scale = Vector2( 3, 3 )
+custom_colors/default_color = Color( 1, 0, 0, 1 )
+text = "10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="MenuButton2" parent="CanvasLayer" instance=ExtResource( 6 )]
+pause_mode = 2
+margin_left = 751.163
+margin_top = 65.0792
+margin_right = 763.163
+margin_bottom = 85.0792
+script = ExtResource( 7 )
+
+[node name="NewGameBtn" parent="CanvasLayer/MenuButton2" index="1"]
+visible = false
+script = null
+
+[node name="ClassicGameBtn" parent="CanvasLayer/MenuButton2" index="2"]
+visible = false
+
+[node name="QuitBtn" parent="CanvasLayer/MenuButton2" index="3"]
+visible = false
+margin_left = 8.24316
+margin_top = 419.487
+margin_right = 182.243
+margin_bottom = 461.487
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="GameOver" type="CenterContainer" parent="Interface"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="Interface/GameOver"]
+margin_left = 953.0
+margin_top = 533.0
+margin_right = 967.0
+margin_bottom = 547.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Interface/GameOver/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 600.0
+margin_bottom = 223.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface/GameOver/PanelContainer/MarginContainer"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 561.0
+margin_bottom = 184.0
+custom_constants/separation = 32
+
+[node name="Label" type="Label" parent="Interface/GameOver/PanelContainer/MarginContainer/VBoxContainer"]
+margin_right = 529.0
+margin_bottom = 57.0
+text = "Game Over"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Interface/GameOver/PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 89.0
+margin_right = 529.0
+margin_bottom = 152.0
+custom_constants/separation = 32
+alignment = 1
+
+[node name="PlayAgain" type="Button" parent="Interface/GameOver/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 244.0
+margin_bottom = 63.0
+text = "Play Again"
+
+[node name="MainMenu" type="Button" parent="Interface/GameOver/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 276.0
+margin_right = 529.0
+margin_bottom = 63.0
+text = "Main Menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -5.0
+autoplay = true
+[connection signal="GameOverSignal" from="Player" to="." method="OnGameOver"]
+[connection signal="QuitGameSignal" from="CanvasLayer/MenuButton2" to="." method="ReturnToMainMenu"]
+[connection signal="pressed" from="CanvasLayer/MenuButton2/NewGameBtn" to="CanvasLayer/MenuButton2" method="NewGameBtnPressed"]
+[connection signal="pressed" from="CanvasLayer/MenuButton2/QuitBtn" to="CanvasLayer/MenuButton2" method="QuitBtnPressed"]
+[connection signal="pressed" from="Interface/GameOver/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PlayAgain" to="." method="RestartLevel"]
+[connection signal="pressed" from="Interface/GameOver/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MainMenu" to="." method="ReturnToMainMenu"]
+
+[editable path="CanvasLayer/MenuButton2"]
