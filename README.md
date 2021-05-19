@@ -1,6 +1,4 @@
 # SpaceInvadersReboot
-CS4700.02 Game Development Final Project
-
 Development Platform: Godot Game Engine
 
 Programming Language: C#
